@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cream Craft Cakes</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fdf6ee;
+      --blush: #f2c4a0;
+      --rose: #c9756b;
+      --teal: #2d7a72;
+      --deep: #1a3a38;
+      --gold: #c9a96e;
+      --soft-pink: #f7e8e0;
+      --text: #2c1a14;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-circles span {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.07;
+      background: var(--gold);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-bg-circles span:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      top: -120px;
+      left: -120px;
+      animation-delay: 0s;
+    }
+
+    .hero-bg-circles span:nth-child(2) {
+      width: 300px;
+      height: 300px;
+      bottom: -60px;
+      right: -60px;
+      animation-delay: 2s;
+    }
+
+    .hero-bg-circles span:nth-child(3) {
+      width: 200px;
+      height: 200px;
+      top: 40%;
+      right: 15%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.04);
+      }
+    }
+
+    .logo-wrap {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+      margin-bottom: 24px;
+      animation: fadeDown 1s ease both;
+      box-shadow: 0 0 40px rgba(201, 169, 110, 0.25);
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      color: var(--cream);
+      letter-spacing: 2px;
+      text-align: center;
+      animation: fadeUp 1s 0.3s ease both;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--blush);
+      margin-top: 12px;
+      letter-spacing: 4px;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-cta {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 1s 0.9s ease both;
+    }
+
+    .btn {
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--deep);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--blush);
+      color: var(--blush);
+    }
+
+    .btn-outline:hover {
+      background: var(--blush);
+      color: var(--deep);
+      transform: translateY(-2px);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--blush);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--blush), transparent);
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(6px);
+      }
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 100px 24px;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--deep);
+      margin-bottom: 24px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--soft-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--teal);
+      border-radius: 40% 20% 40% 20% / 20% 40% 20% 40%;
+      overflow: hidden;
+      position: relative;
+      animation: morphBlob 8s ease-in-out infinite;
+    }
+
+    @keyframes morphBlob {
+
+      0%,
+      100% {
+        border-radius: 40% 20% 40% 20% / 20% 40% 20% 40%;
+      }
+
+      33% {
+        border-radius: 20% 40% 20% 40% / 40% 20% 40% 20%;
+      }
+
+      66% {
+        border-radius: 30% 30% 30% 30% / 30% 30% 30% 30%;
+      }
+    }
+
+    .about-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      mix-blend-mode: luminosity;
+    }
+
+    .about-img-frame .img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .about-img-frame .img-placeholder .cake-icon {
+      font-size: 4rem;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 110px;
+      height: 110px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--deep);
+      text-align: center;
+      line-height: 1.3;
+      box-shadow: 0 8px 24px rgba(201, 169, 110, 0.4);
+      animation: spin-slow 20s linear infinite;
+    }
+
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .about-badge .inner {
+      animation: counter-spin 20s linear infinite;
+    }
+
+    @keyframes counter-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    .about-text .section-title {
+      margin-bottom: 16px;
+    }
+
+    .baker-name {
+      color: var(--teal);
+      font-style: italic;
+    }
+
+    .about-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #4a3228;
+      margin-bottom: 16px;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(201, 117, 107, 0.2);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--rose);
+      line-height: 1;
+    }
+
+    .stat-item .lbl {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── MENU ── */
+    #menu {
+      background: var(--cream);
+      max-width: 100%;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 2px solid var(--teal);
+      background: transparent;
+      color: var(--teal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--teal);
+      color: white;
+    }
+
+    .menu-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .menu-grid.active {
+      display: grid;
+    }
+
+    .cake-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(44, 26, 20, 0.07);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+    }
+
+    .cake-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(44, 26, 20, 0.15);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, var(--blush) 0%, var(--soft-pink) 100%);
+    }
+
+    .card-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--soft-pink) 0%, #ffe8d8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-img-placeholder::after {
+      content: 'Sample Image';
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(44, 26, 20, 0.3);
+    }
+
+    /* Editable image instruction */
+    .card-img-placeholder .edit-note {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(201, 169, 110, 0.9);
+      color: var(--deep);
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .card-category-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--teal);
+      color: white;
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 20px 22px 22px;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: #7a5a50;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .card-prices {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .price-chip {
+      background: var(--soft-pink);
+      border-radius: 12px;
+      padding: 7px 14px;
+      text-align: center;
+    }
+
+    .price-chip .weight {
+      font-size: 0.68rem;
+      color: var(--rose);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .price-chip .price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    .price-chip .price::before {
+      content: '₹';
+      font-size: 0.8rem;
+    }
+
+    .order-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--teal);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .order-btn:hover {
+      background: var(--rose);
+      transform: scale(1.02);
+    }
+
+    .order-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
+    /* Weight modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 58, 56, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 28px;
+      padding: 40px;
+      max-width: 440px;
+      width: 90%;
+      position: relative;
+      animation: popIn 0.3s ease;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+
+    .modal p {
+      color: #7a5a50;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .modal-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .weight-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border: 2px solid var(--soft-pink);
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: var(--soft-pink);
+    }
+
+    .weight-option:hover,
+    .weight-option.selected {
+      border-color: var(--teal);
+      background: rgba(45, 122, 114, 0.08);
+    }
+
+    .weight-option .wo-label {
+      font-weight: 600;
+      color: var(--deep);
+      font-size: 0.95rem;
+    }
+
+    .weight-option .wo-price {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--teal);
+      font-size: 1.1rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .modal-cancel {
+      flex: 1;
+      padding: 14px;
+      border: 2px solid #ddd;
+      background: transparent;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #666;
+    }
+
+    .modal-cancel:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+
+    .modal-confirm {
+      flex: 2;
+      padding: 14px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-confirm:hover {
+      background: #1ebe57;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .modal-confirm svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #aaa;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--rose);
+    }
+
+    /* Pastry special pricing */
+    .price-chip.single .weight {
+      display: none;
+    }
+
+    /* ── DECORATIVE DIVIDER ── */
+    .divider {
+      text-align: center;
+      padding: 20px;
+      font-size: 2rem;
+      opacity: 0.25;
+      letter-spacing: 20px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      color: var(--blush);
+      text-align: center;
+      padding: 60px 24px;
+    }
+
+    footer .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    footer .tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+      color: var(--blush);
+    }
+
+    footer .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    footer .contact-links a {
+      color: var(--blush);
+      text-decoration: none;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      letter-spacing: 1px;
+    }
+
+    footer .contact-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    footer .copy {
+      font-size: 0.78rem;
+      opacity: 0.4;
+      letter-spacing: 2px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(26, 58, 56, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    nav .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    nav .nav-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    nav .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .about-img-wrap {
+        order: -1;
+      }
+
+      nav .nav-links {
+        display: none;
+      }
+
+      nav {
+        padding: 16px 24px;
+      }
+
+      .about-stats {
+        gap: 24px;
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Floating cake emojis */
+    .floaty {
+      position: fixed;
+      pointer-events: none;
+      font-size: 2rem;
+      animation: floatUp 4s ease-in forwards;
+      z-index: 9999;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-200px) rotate(30deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-brand">Cream Craft Cakes</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#order">Order</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-circles">
+      <span></span><span></span><span></span>
+    </div>
+
+    <!-- 
+    ============================================================
+    LOGO: Replace the src below with your logo image path
+    ============================================================
+  -->
+    <div class="logo-wrap">
+      <img src="Gemini_Generated_Image_3s3w1e3s3w1e3s3w.png" alt="Cream Craft Cakes Logo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div
+        style="display:none; width:100%; height:100%; background:var(--teal); align-items:center; justify-content:center; font-size:3rem;">
+        🎂</div>
+    </div>
+
+    <div class="hero">
+      <h1>Cream Craft <span>Cakes</span></h1>
+      <p class="tagline">✦ Made with Love ✦</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+        <a href="#about" class="btn btn-outline">Our Story</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-frame">
+          <!-- 
+          ============================================================
+          BAKER PHOTO: Replace with baker's actual photo
+          Change the src to your image file
+          ============================================================
+        -->
+          <div class="img-placeholder">
+            <span class="cake-icon">👩‍🍳</span>
+            <span style="font-size:0.9rem; opacity:0.7;">photo</span>
+          </div>
+        </div>
+        <div class="about-badge">
+          <div class="inner">
+            🎂<br>Home<br>Baker
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">Meet <span class="baker-name">Your Baker</span></h2>
+        <!--
+        ============================================================
+        ABOUT TEXT: Edit the baker's name and bio below
+        ============================================================
+      -->
+        <p>Hello! I'm <strong>Lijina Sajeev</strong>, he heart and hands behind this home-based cake studio, where every
+          creation is made with passion, care, and a deep love for baking.
+          What started as a simple joy in the kitchen has grown into a meaningful journey of turning everyday
+          ingredients into beautiful, memorable cakes that bring smiles to people’s faces.</p>
+        <p>Each cake I bake is crafted from scratch using fresh, high-quality ingredients. I believe that great taste
+          comes from honesty—no shortcuts, no unnecessary preservatives, just pure, homemade goodness.
+          From mixing the batter to the final decorative touch, every step is done with attention to detail and
+          dedication.</p>
+        <p>Whether it’s a birthday, anniversary, wedding, or a small personal celebration, I strive to create cakes that
+          not only look stunning but also taste unforgettable. I understand that every occasion is special,
+          and my goal is to make it even more meaningful with a cake that reflects your story and style. — <em>Made with
+            Love.</em></p>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="num">200+</div>
+            <div class="lbl">Cakes Baked</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">5★</div>
+            <div class="lbl">Happy Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">7+</div>
+            <div class="lbl">Years Baking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="menu-header reveal">
+      <p class="section-label">Our Creations</p>
+      <h2 class="section-title" style="text-align:center;">The Menu</h2>
+      <p
+        style="text-align:center; color:#7a5a50; font-family:'Cormorant Garamond',serif; font-size:1.1rem; max-width:500px; margin:0 auto;">
+        Each cake is made fresh on order. All weights shown in kg.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="showTab('premium')">Premium</button>
+      <button class="tab-btn" onclick="showTab('rich')">Rich Cakes</button>
+      <button class="tab-btn" onclick="showTab('exotic')">Exotic</button>
+      <button class="tab-btn" onclick="showTab('pastries')">Pastries</button>
+    </div>
+
+    <!--
+  ================================================================
+  MENU DATA — Edit cake names, prices, descriptions, and emojis here
+  All prices in ₹. Weights converted: 1 pound ≈ 0.5 kg, 2 pounds ≈ 1 kg
+  To change a cake image: add an <img> tag replacing the emoji div
+  ================================================================
+  -->
+
+    <!-- PREMIUM -->
+    <div class="menu-grid active" id="tab-premium">
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">
+          🍫
+          <span class="edit-note">REPLACE IMAGE</span>
+        </div>
+        <span class="card-category-badge">Premium</span>
+        <div class="card-body">
+          <div class="card-name">Chocolate Gems</div>
+          <div class="card-desc">Rich chocolate layers adorned with premium gem toppings.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">549</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">799</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Chocolate Gems', [{w:'0.5 kg',p:549},{w:'1 kg',p:799}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍓</div>
+        <span class="card-category-badge">Premium</span>
+        <div class="card-body">
+          <div class="card-name">Classic Fresh Fruits</div>
+          <div class="card-desc">Light sponge layered with fresh seasonal fruits and cream.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">549</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">799</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Classic Fresh Fruits', [{w:'0.5 kg',p:549},{w:'1 kg',p:799}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍰</div>
+        <span class="card-category-badge">Premium</span>
+        <div class="card-body">
+          <div class="card-name">Light Chocolate</div>
+          <div class="card-desc">Delicate milk chocolate cake with smooth whipped frosting.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">549</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">799</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Light Chocolate', [{w:'0.5 kg',p:549},{w:'1 kg',p:799}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🧈</div>
+        <span class="card-category-badge">Premium</span>
+        <div class="card-body">
+          <div class="card-name">Butter Scotch</div>
+          <div class="card-desc">Golden butterscotch layers with caramel drizzle and praline.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">549</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">799</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Butter Scotch', [{w:'0.5 kg',p:549},{w:'1 kg',p:799}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /tab-premium -->
+
+    <!-- RICH CAKES -->
+    <div class="menu-grid" id="tab-rich">
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">❤️</div>
+        <span class="card-category-badge">Rich</span>
+        <div class="card-body">
+          <div class="card-name">Red Velvet</div>
+          <div class="card-desc">Classic red velvet with silky cream cheese frosting.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">649</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">849</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Red Velvet', [{w:'0.5 kg',p:649},{w:'1 kg',p:849}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍫</div>
+        <span class="card-category-badge">Rich</span>
+        <div class="card-body">
+          <div class="card-name">Chocolate Truffle</div>
+          <div class="card-desc">Intense dark chocolate ganache layered with truffle cream.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">649</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">849</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Chocolate Truffle', [{w:'0.5 kg',p:649},{w:'1 kg',p:849}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🌲</div>
+        <span class="card-category-badge">Rich</span>
+        <div class="card-body">
+          <div class="card-name">German Black Forest</div>
+          <div class="card-desc">Classic Black Forest with cherries, cream, and dark chocolate.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">649</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">849</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('German Black Forest', [{w:'0.5 kg',p:649},{w:'1 kg',p:849}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">👑</div>
+        <span class="card-category-badge">Rich</span>
+        <div class="card-body">
+          <div class="card-name">Royal Chocolate</div>
+          <div class="card-desc">Premium Belgian chocolate in an indulgent regal presentation.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">0.5 kg</div>
+              <div class="price">649</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">1 kg</div>
+              <div class="price">849</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Royal Chocolate', [{w:'0.5 kg',p:649},{w:'1 kg',p:849}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /tab-rich -->
+
+    <!-- EXOTIC -->
+    <div class="menu-grid" id="tab-exotic">
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🌿</div>
+        <span class="card-category-badge">Exotic</span>
+        <div class="card-body">
+          <div class="card-name">Vanilla</div>
+          <div class="card-desc">Aromatic Madagascar vanilla with light cloud-like frosting.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Small</div>
+              <div class="price">499</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">Large</div>
+              <div class="price">599</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Vanilla', [{w:'Small',p:499},{w:'Large',p:599}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🤍</div>
+        <span class="card-category-badge">Exotic</span>
+        <div class="card-body">
+          <div class="card-name">White Forest</div>
+          <div class="card-desc">White chocolate with cherries and light cream layers.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Small</div>
+              <div class="price">449</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">Large</div>
+              <div class="price">689</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('White Forest', [{w:'Small',p:449},{w:'Large',p:689}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍒</div>
+        <span class="card-category-badge">Exotic</span>
+        <div class="card-body">
+          <div class="card-name">Black Forest</div>
+          <div class="card-desc">Morello cherries with dark chocolate and whipped cream.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Small</div>
+              <div class="price">449</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">Large</div>
+              <div class="price">689</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Black Forest', [{w:'Small',p:449},{w:'Large',p:689}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍍</div>
+        <span class="card-category-badge">Exotic</span>
+        <div class="card-body">
+          <div class="card-name">Pineapple Delight</div>
+          <div class="card-desc">Tropical pineapple crush layered with chilled cream.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Small</div>
+              <div class="price">449</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">Large</div>
+              <div class="price">689</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Pineapple Delight', [{w:'Small',p:449},{w:'Large',p:689}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍓</div>
+        <span class="card-category-badge">Exotic</span>
+        <div class="card-body">
+          <div class="card-name">Strawberry Delight</div>
+          <div class="card-desc">Fresh strawberries with rose cream and sponge layers.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Small</div>
+              <div class="price">449</div>
+            </div>
+            <div class="price-chip">
+              <div class="weight">Large</div>
+              <div class="price">689</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Strawberry Delight', [{w:'Small',p:449},{w:'Large',p:689}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /tab-exotic -->
+
+    <!-- PASTRIES -->
+    <div class="menu-grid" id="tab-pastries">
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍰</div>
+        <span class="card-category-badge">Pastry</span>
+        <div class="card-body">
+          <div class="card-name">Black Forest Pastry</div>
+          <div class="card-desc">Individual portion of our classic Black Forest cake.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Per Piece</div>
+              <div class="price">30</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Black Forest Pastry', [{w:'Per Piece',p:30}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍍</div>
+        <span class="card-category-badge">Pastry</span>
+        <div class="card-body">
+          <div class="card-name">Pineapple Pastry</div>
+          <div class="card-desc">Tropical pineapple slice with creamy layers.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Per Piece</div>
+              <div class="price">99</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Pineapple Pastry', [{w:'Per Piece',p:99}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🧈</div>
+        <span class="card-category-badge">Pastry</span>
+        <div class="card-body">
+          <div class="card-name">Butter Scotch Pastry</div>
+          <div class="card-desc">Caramel butterscotch with crunchy praline bits.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Per Piece</div>
+              <div class="price">89</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Butter Scotch Pastry', [{w:'Per Piece',p:89}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🌿</div>
+        <span class="card-category-badge">Pastry</span>
+        <div class="card-body">
+          <div class="card-name">Vanilla Pastry</div>
+          <div class="card-desc">Classic vanilla slice with light whipped cream.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Per Piece</div>
+              <div class="price">30</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Vanilla Pastry', [{w:'Per Piece',p:30}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <div class="card-img-placeholder">🍓</div>
+        <span class="card-category-badge">Pastry</span>
+        <div class="card-body">
+          <div class="card-name">Strawberry Pastry</div>
+          <div class="card-desc">Fresh strawberry slice with rose cream frosting.</div>
+          <div class="card-prices">
+            <div class="price-chip">
+              <div class="weight">Per Piece</div>
+              <div class="price">89</div>
+            </div>
+          </div>
+          <button class="order-btn" onclick="openOrder('Strawberry Pastry', [{w:'Per Piece',p:89}])">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.os.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+            </svg>
+            Order Now
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /tab-pastries -->
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="order">
+    <div class="brand">Cream Craft Cakes</div>
+    <div class="tag">✦ Made with Love ✦</div>
+    <div class="contact-links">
+      <!--
+      ============================================================
+      WHATSAPP NUMBER: Change 919XXXXXXXXX to your actual number
+      ============================================================
+    -->
+      <a href="https://wa.me/9961773813" target="_blank">📱 WhatsApp Us</a>
+      <a href="mailto:creamcraftcakes@gmail.com">✉️ Email Us</a>
+      <a href="#">📍 Kerala, India</a>
+    </div>
+    <p class="copy">© 2025 CREAM CRAFT CAKES · ALL RIGHTS RESERVED</p>
+  </footer>
+
+  <!-- ORDER MODAL -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <h3 id="modalCakeName">Cake Name</h3>
+      <p>Select your preferred size / weight:</p>
+      <div class="modal-options" id="modalOptions"></div>
+      <div class="modal-actions">
+        <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+        <button class="modal-confirm" onclick="confirmOrder()">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.518 3.86 1.426 5.479L2 22l4.641-1.395A9.93 9.93 0 0012 22c5.523 0 10-4.477 10-10 0-5.522-4.477-10-10.001-10z" />
+          </svg>
+          Send Order on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================
+    // WHATSAPP CONFIG — Change this to your actual number
+    // Format: country code + number, no + or spaces
+    // Example for India: 919876543210
+    // ============================================================
+    const WHATSAPP_NUMBER = '+91 9961773813';
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60);
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Tab switching
+    function showTab(tab) {
+      document.querySelectorAll('.menu-grid').forEach(g => g.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      event.target.classList.add('active');
+      // re-trigger reveals for new tab
+      document.querySelectorAll('#tab-' + tab + ' .reveal').forEach(el => {
+        el.classList.add('visible');
+      });
+    }
+
+    // Modal logic
+    let currentCake = '';
+    let currentOptions = [];
+    let selectedOption = null;
+
+    function openOrder(name, options) {
+      currentCake = name;
+      currentOptions = options;
+      selectedOption = options.length === 1 ? 0 : null;
+      document.getElementById('modalCakeName').textContent = name;
+      const container = document.getElementById('modalOptions');
+      container.innerHTML = options.map((opt, i) => `
+      <div class="weight-option ${options.length === 1 ? 'selected' : ''}" onclick="selectOption(${i})" id="opt-${i}">
+        <span class="wo-label">${opt.w}</span>
+        <span class="wo-price">₹${opt.p}</span>
+      </div>
+    `).join('');
+      document.getElementById('orderModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function selectOption(i) {
+      selectedOption = i;
+      document.querySelectorAll('.weight-option').forEach((el, idx) => {
+        el.classList.toggle('selected', idx === i);
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('orderModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function confirmOrder() {
+      if (selectedOption === null) {
+        alert('Please select a size / weight first!');
+        return;
+      }
+      const opt = currentOptions[selectedOption];
+      const msg = encodeURIComponent(
+        `Hi! I'd like to order:\n\n🎂 *${currentCake}*\n⚖️ Weight / Size: *${opt.w}*\n💰 Price: ₹${opt.p}\n\nPlease confirm availability. Thank you! 😊`
+      );
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+      closeModal();
+      spawnCakes();
+    }
+
+    // Close modal on backdrop click
+    document.getElementById('orderModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+
+    // Fun floating cakes on order
+    function spawnCakes() {
+      const emojis = ['🎂', '🍰', '🧁', '✨', '💖'];
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          const el = document.createElement('div');
+          el.className = 'floaty';
+          el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          el.style.left = Math.random() * 90 + 'vw';
+          el.style.bottom = '10vh';
+          document.body.appendChild(el);
+          setTimeout(() => el.remove(), 4000);
+        }, i * 200);
+      }
+    }
+  </script>
+</body>
+
+</html>
