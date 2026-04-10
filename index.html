@@ -1805,9 +1805,13 @@
     // Tab switching
     function showTab(tab) {
       document.querySelectorAll('.menu-grid').forEach(g => g.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + tab + "'")) {
+          b.classList.add('active');
+        }
+      });
       document.getElementById('tab-' + tab).classList.add('active');
-      event.target.classList.add('active');
       // re-trigger reveals for new tab
       document.querySelectorAll('#tab-' + tab + ' .reveal, #tab-' + tab + ' .reveal-left, #tab-' + tab + ' .reveal-right, #tab-' + tab + ' .reveal-zoom, #tab-' + tab + ' .reveal-blur, #tab-' + tab + ' .reveal-flip, #tab-' + tab + ' .reveal-rotate').forEach(el => {
         el.classList.add('visible');
