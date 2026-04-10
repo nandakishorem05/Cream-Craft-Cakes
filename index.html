@@ -1811,10 +1811,18 @@
           b.classList.add('active');
         }
       });
-      document.getElementById('tab-' + tab).classList.add('active');
-      // re-trigger reveals for new tab
-      document.querySelectorAll('#tab-' + tab + ' .reveal, #tab-' + tab + ' .reveal-left, #tab-' + tab + ' .reveal-right, #tab-' + tab + ' .reveal-zoom, #tab-' + tab + ' .reveal-blur, #tab-' + tab + ' .reveal-flip, #tab-' + tab + ' .reveal-rotate').forEach(el => {
-        el.classList.add('visible');
+      const activeTab = document.getElementById('tab-' + tab);
+      activeTab.classList.add('active');
+      
+      // Force repaint to prevent mobile rendering bugs when changing display from none to grid
+      void activeTab.offsetWidth;
+      
+      // re-trigger reveals for new tab with a stagger effect
+      activeTab.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom, .reveal-blur, .reveal-flip, .reveal-rotate').forEach((el, idx) => {
+        el.classList.remove('visible');
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, idx * 50 + 10);
       });
     }
 
